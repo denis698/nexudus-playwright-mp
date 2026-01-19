@@ -65,7 +65,7 @@
     "url": "https://github.com/denis698/nexudus-playwright-e2e.git"
   },
   "devDependencies": {
-    "@playwright/test": "^1.51.1",
+    "@playwright/test": "^1.57.0",
     "@types/node": "^22.14.0",
     "allure-commandline": "^2.20.1",
     "allure-playwright": "^3.1.0",

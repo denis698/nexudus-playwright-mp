@@ -9,7 +9,7 @@ test.beforeEach(async ({ mpLoginPage }) => {
 test.describe('Member Portal Login', () => {
   
   test(`@10001 @smoke @mp.login - login to member portal`, async ({mpLoginPage, mpDashboardPage}) => {
-    await mpLoginPage.login(String(process.env.MP_PASSWORD));
+    await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
     await mpLoginPage.loginAs(String(process.env.MP_TEST_USERNAME), String(process.env.MP_TEST_PASSWORD));
     await mpDashboardPage.verifyAt();
     await mpDashboardPage.verifyUserLoginStatus(userData.name);

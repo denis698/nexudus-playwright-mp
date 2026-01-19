@@ -1,0 +1,38 @@
+{
+    "600": {
+        "type":     "Show all",
+        "location": "Coworking Soho (DENIS)",
+        "team":     "e2e"
+    },
+    "601": {
+        "name": "e2e_601_team - man entry with default loc",
+        "description": "Description of test team - manual entry with default location",
+        "type": "Show all",
+        "location": "Coworking Soho (DENIS)"
+    },
+    "602": {
+        "name": "e2e_602_team - man entry with different loc",
+        "description": "Description of test team - manual entry with different location",
+        "type": "Show all",
+        "defaultLocation":  "Coworking Soho (DENIS)",
+        "location": "Coworking Soho (DENIS)"
+    },
+    "603": {
+        "companyName": "e2e_603_team - comp_structure",
+        "email": "company.customer+603@nexudus.com",
+        "individualName": "e2e_603_ind_customer",
+        "location": "Coworking Soho (DENIS)",
+        "type": "Show all"
+    },
+    "604": {
+        "name": "e2e_604_team - mult_customer",
+        "individualName1": "e2e_604_J_Bond",
+        "individualName2": "e2e_604_A_C_Doyle",
+        "email1": "bond604@nexudus.com",
+        "email2": "conan.doyle604@nexudus.com",
+        "location": "Coworking Soho (DENIS)",
+        "type": "Show all"
+
+    }
+  }
+  

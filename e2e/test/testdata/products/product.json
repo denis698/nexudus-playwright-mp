@@ -1,0 +1,39 @@
+    {
+        "name":"e2e",
+        "passes_name":"10 day passes",
+        "passes_product_description":"10 day passes",
+        "location":"Coworking Soho (DENIS)",
+        "description":"test product description",
+        "show_all":"Show all",
+        "filter": {
+            "all": "Show all",
+            "published": "Published products",
+            "internal": "Internal products",
+            "available": "Available products",
+            "archived": "Archived products"
+        },
+        "error": {
+            "name_required": "Name: This field is required",
+            "description_required": "Description: This field is required",
+            "negative_amount_error":"Must be greater than or equal to 1"
+        },
+        "financial_account":"sales (200)",
+        "tax_rate":"10% (10%)",
+        "negative_amount":"-100",
+        "unit_price":"£0.00",
+        "number": "20",
+        "info": {
+            "name": "10 day passes",
+            "description": "10 day passes",
+            "price": "£0.00",
+            "location": "Coworking Soho (DENIS)"
+        },
+        "type": {
+            "me": "_manual_",
+            "dp": "_day pass_",
+            "hp": "_hour pass package_",
+            "bc": "_booking credit package_",
+            "de": "_deposit_"
+        }
+    }
+    

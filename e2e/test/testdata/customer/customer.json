@@ -1,0 +1,62 @@
+{
+  
+  "400": {
+    "location": "Coworking Soho (DENIS)",
+    "filter":   "Show all",
+    "name":     "e2e"
+  },
+  "401": {
+    "name": "e2e_401_individual",
+    "company": "e2e_401_company",
+    "email": "ind.customer@gmail.com",
+    "phone": "+44123456789 ext(123)",
+    "mobile": "+44987654321",
+    "filter": "Show all",
+    "location": "Coworking Soho (DENIS)"
+  },
+  "402": {
+    "company": "e2e_402_company",
+    "name": "e2e_402_individual",
+    "email": "company.customer@gmail.com",
+    "phone": "+44123456789 ext(123)",
+    "mobile": "+44987654321",
+    "filter": "Show all",
+    "location": "Coworking Soho (DENIS)"
+  },
+  "403": {
+    "company": "e2e_403_company",
+    "name": "e2e_403_customer",
+    "email": "company.structure.customer@gmail.com",
+    "location": "Coworking Soho (DENIS)",
+    "teamType": "Show all"
+  },
+  "405": {
+    "individualName1": "e2e_405_Benedict_Cumberbatch",
+    "individualName2": "e2e_405_Orlando_Bloom",
+    "email1": "sherlock405@nexudus.com",
+    "email2": "legolas405@nexudus.com",
+    "location": "Coworking Soho (DENIS)",
+    "filter": "Show all"
+  },
+  "406": {
+    "teamName": "e2e_406_team",
+    "location": "Coworking Soho (DENIS)",
+    "filter": "Show all",
+    "individualName1": "e2e_406_First Bond",
+    "individualName2": "e2e_406_Second Bond",
+    "individualName3": "e2e_406_Third Bond",
+    "email1": "bond1@nexudus.com",
+    "email2": "bond2@nexudus.com",
+    "email3": "bond3@nexudus.com"
+  },
+  "407": {
+    "planName": "e2e_407_Plan",
+    "planDescription": "description",
+    "individualName1": "e2e_407_Benedict_Cumberbatch",
+    "individualName2": "e2e_407_Orlando_Bloom",
+    "email1": "sherlock405@nexudus.com",
+    "email2": "legolas405@nexudus.com",
+    "location": "Coworking Soho (DENIS)",
+    "filter": "Show all"
+  }
+}

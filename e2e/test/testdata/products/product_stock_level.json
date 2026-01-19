@@ -1,0 +1,15 @@
+    {
+        "name":"_Stock Level Product ",
+        "location":"Coworking Soho (DENIS)",
+        "description":"Stock Level Product Description",
+        "type":"Show all",
+        "stock_level_change1":"12",
+        "stock_level_expected1":"12",
+        "stock_level_change2":"-10",
+        "stock_level_expected2":"2",
+        "stock_level_change3":"10",
+        "stock_level_change4":"-100",
+        "stock_level_change5":"500",
+        "stock_level_change6":"-498"
+    }
+    

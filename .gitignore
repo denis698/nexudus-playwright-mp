@@ -1,0 +1,21 @@
+/.cache
+.turbo
+.vite
+/.parcel-cache
+/node_modules
+/dist/
+/test-results
+/playwright-report
+/playwright/.cache
+.env
+/html-report
+test-result.json
+LighthouseReport.html
+/report
+monocart-results
+allure-report
+allure-results
+
+# Playwright
+node_modules/
+/blob-report/

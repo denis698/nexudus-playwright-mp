@@ -1,0 +1,12 @@
+{
+  "modules": true,
+  "plugins": {
+    "postcss-modules": {
+      globalModulePaths: [
+        "app.scss",
+        "nexudus.scss"
+      ],
+      "generateScopedName": "_[name]__[local]"
+    }
+  }
+}

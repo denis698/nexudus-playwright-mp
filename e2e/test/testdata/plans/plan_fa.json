@@ -1,0 +1,9 @@
+    {
+        "name":"e2e FA enabled plan ",
+        "location":"Coworking Soho (DENIS)",
+        "description":"FA enabled plan description",
+        "financial_account":"sales (200)",
+        "tax_rate":"10% (10%)",
+        "error": "Name: This field is required"
+    }
+    

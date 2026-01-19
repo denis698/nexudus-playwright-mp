@@ -1,0 +1,88 @@
+# Name of the GitHub Actions workflow
+name: AP & MP e2e tests
+
+# Define when to trigger this workflow
+on:
+  workflow_dispatch: # adding the workflow_dispatch so it can be triggered manually
+    inputs:
+      text_to_print:
+        description: 'Run tests for Admin Panel & Member Portal?'
+        required: true
+        default: 'Testing Admin Panel & Member Portal'
+  schedule: #Schedule the e2e job to run at 10:30 pm daily.
+    - cron: '30 22 * * *' 
+
+# Define the jobs to run in this workflow
+jobs:
+  # Define a job named 'test_setup'
+  test_setup:
+    name: Test setup
+    # Specify the operating system for this job
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+  
+  # Define a job named 'test_e2e'
+  test_e2e:
+    needs: test_setup
+    name: Playwright tests
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    # Define the steps to execute in this job
+    steps:
+      # Step to checkout the source code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+      # Step to set up the Node.js version
+      - name: Install node js v20
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      # Step to install Node.js dependencies
+      - name: Install dependencies
+        run: npm install    
+      - run: npm install --save dotenv
+      - run: npm i -D monocart-reporter
+      - run: npx playwright install --with-deps
+      - run: npm install -D @playwright/test@latest
+      - run: npx playwright install
+      # Step to run tests with qa as environment
+      - name: Run tests
+        id: e2e_tests
+        env:
+          AP_TEST_BASE_URL: ${{ secrets.AP_TEST_BASE_URL }}
+          AP_TEST_USERNAME: ${{ secrets.AP_TEST_USERNAME }}
+          AP_TEST_PASSWORD: ${{ secrets.AP_TEST_PASSWORD }}
+          AT_TEST_LOCATION_1: ${{ secrets.AT_TEST_LOCATION_1 }}
+          
+          MP_TEST_LOGIN_URL: ${{ secrets.MP_TEST_LOGIN_URL }}
+          MP_TEST_USERNAME: ${{ secrets.MP_TEST_USERNAME }}
+          MP_TEST_PASSWORD: ${{ secrets.MP_TEST_PASSWORD }}
+        run: npm run test:firefox
+        
+      # Step to wait for the job to complete
+      - name: Wait for job completion
+        # Adjust the wait time as needed
+        run: sleep 5s
+        # This step should always run, even if previous steps fail
+        if: always()
+
+      # Step to upload artifact  
+      - name: Test Report
+        id: test-report # Set ID reference for step
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: monocart-results
+          path: ./monocart-results/*
+          retention-days: 5
+          if-no-files-found: warn # 'warn' or 'ignore' are also available, defaults to `warn`
+          include-hidden-files: true
+      - run: echo monocart-results/    
+
+      - name: Read output variables
+        id: artifact_link
+        run: |
+          echo "🍏 This job's status is ${{ job.status }}"
+          echo "Github Workspace Url is ${{ github.workspace }}"

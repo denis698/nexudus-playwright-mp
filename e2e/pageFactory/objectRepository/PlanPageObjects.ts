@@ -1,0 +1,30 @@
+export class PlanPageObjects {
+  protected static PLAN_PAGE_URL = `/billing/tariffs`;
+  protected static ADD_PLAN_BUTTON = `text="Add plan"`;
+  protected static MANUAL_ENTRY_BUTTON = `text="Manual entry"`;
+  protected static PLAN_NAME = `text="planName"`;
+  protected static SEARCH_MENU = `#billing_tariffs_segement_menu_button`;
+  protected static SEARCH_MENU_ARCHIVED_OPTION = `text="Archived plans"`;
+  protected static SEARCH_MENU_PUBLISHED_OPTION = `text="Published plans"`;
+  protected static SEARCH_MENU_INTERNAL_OPTION = `text="Internal plans"`;
+  protected static SEARCH_MENU_AVAILABLE_OPTION = `text="Available plans"`;
+  protected static SEARCH_MENU_SHOW_ALL_OPTION = `text="Show all"`;
+  protected static PLAN_CHECK_BOX = `[aria-label="Select row 1"]`;
+  protected static ARCHIVE_PLAN_BUTTON = `text="Archive 1 record"`;
+  protected static RESTORE_PLAN_BUTTON = `text="Restore 1 record"`;
+  protected static CONFIRMATION_BUTTON = `text="Yes, do it"`;
+  protected static CLOSE_NOTIFICATION_TOAST_BUTTON = `[data-test-subj="toastCloseButton"]`;
+  protected static ALL_PLANS_CHECKBOX = `[data-test-subj="checkboxSelectAll"]`;
+  protected static DELETE_ALL_PLANS_BUTTON = `button[type="button"].euiButton.css-dmpes-euiButtonDisplay-s-defaultMinWidth-fill-danger`;
+  protected static CLOSE_PANEL_BUTTON = `[data-test-subj="euiFlyoutCloseButton"]`;
+  protected static NO_PLANS_LABEL = `text="No items found"`;
+  protected static NO_PLANS_CHECKBOX = `.euiPanel.css-1yz5lbp-euiPanel-grow-m-m-plain-hasShadow`;
+  protected static NO_PLANS_CANVAS = `.euiEmptyPrompt__main`;
+  protected static VISIBLE_ROWS_BUTTON = 'button[data-test-subj="tablePaginationPopoverButton"]';
+  protected static VISIBLE_ROWS_100_OPTION = 'button[data-test-subj="tablePagination-100-rows"]';
+  protected static SEARCH_FILTER_INPUT_TEXT_FIELD = 'input[type="search"]';
+  protected static SEARCH_OPTION_BY_TEAM_NAME = '[role="option"][title="Name = teamNamePlaceHolder"]';
+  protected static DELETE_PLANS_BUTTON_SIDE_MENU = '//*[contains(text(),"Text")]';
+  protected static DELETE_PLANS_TEXT_FIELD = '[placeholder="Type \'DELETE\' to continue"]';
+  protected static BULK_ACTIONS_BUTTON = '//*[contains(text(),"Text")]';
+}

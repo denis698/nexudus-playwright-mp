@@ -1,0 +1,35 @@
+export class AddPlanDialogObjects {
+  protected static MANUAL_ENTRY_BUTTON = `text="Manual entry"`;
+  protected static FULL_TIME_PLAN = `text="Full time plan"`;
+  protected static YEARLY_PLAN = `text="Yearly plan"`;
+  protected static PART_TIME_PLAN = `text="Part-time plan"`;
+  protected static ADD_PLAN_BUTTON = `.euiModalFooter button.euiButton:nth-child(2) .eui-textTruncate`;
+  protected static PLAN_NAME_TEXT_FIELD = `[data-test-subj="tariff_Name"]`;
+  protected static PLAN_LOCATION_TEXT_FIELD = `.euiComboBoxPill--plainText:text('location')`;
+  protected static PLAN_DESCRIPTION_TEXT_AREA = `[data-test-subj="tariff_Description"] [role="application"] [dir="auto"] [dir="auto"]`;
+  protected static PLAN_POSITION_TEXT_FIELD = `input.euiFieldNumber`;
+  protected static FINANCIAL_ACCOUNTS_DROP_DOWN_MENU = "[data-test-subj='tariff_FinancialAccountId']";
+  protected static TAX_RATE_DROP_DOWN_MENU = "[data-test-subj='tariff_TaxRateId']";
+  protected static CLOSE_LIST_OF_OPTIONS = `[aria-label="Close list of options"]`;
+  protected static SAVE_CHANGES_BUTTON = `text="Save changes"`;
+  protected static CONFIRMATION_BUTTON = `text="Yes, do it"`;
+  protected static MORE_ACTIONS_BUTTON = `text="More actions"`;
+  protected static CLOSE_NOTIFICATION_TOAST_BUTTON = `[data-test-subj="toastCloseButton"]`;
+  protected static DELETE_BUTTON = `text=Delete`;
+  protected static DELETE_TEXT_FIELD = `[placeholder="Type 'DELETE' to continue"]`;
+  protected static CONFIRMATION_TEXT = `[data-test-subj="euiToastHeader__title"]`;
+  protected static SAVE_ERROR = '.euiFormErrorText';
+  protected static TOAST_ERROR_TEXT = `[data-test-subj="euiToastBody"]`;
+  protected static CLOSE_RETURN_BUTTON = `[aria-label="Close this dialog"]`;
+  protected static CLOSE_RETURN_BOTTOM_BUTTON = `text="Close"`;
+  protected static DISCARD_UNSAVED_CHANGES_BUTTON = `text="Discard unsaved changes"`;
+  protected static COPY_PLAN_BUTTON = `[description="This action makes an exact copy of the selected plans."]`;
+  protected static PLAN_NAME_HEADER = `.euiTitle`;
+  protected static PRICING_TAB = `text="Pricing"`;
+  protected static PLAN_PRICE_TEXT_FIELD = `[data-test-subj="tariff_Price"]`;
+  protected static FTP_NAME_TEXT_FIELD = `[placeholder="24/7 Access Membership"]`;
+  protected static FTP_MONTHLY_PRICE_TEXT_FIELD = `[placeholder="399.99"].euiFieldNumber`;
+  protected static FT_NAME_TEXT_FIELD = `[placeholder="Yearly plan"]`;
+  protected static FT_YEARLY_PRICE_TEXT_FIELD = `[placeholder="399"].euiFieldNumber`;
+  protected static DISABLED_SAVE_BUTTON = `[title="No changes were made to this record since the last time it was saved."]`;
+}

@@ -1,0 +1,11 @@
+ {
+    "kind": {
+        "SystemProductType-4":  "Booking feature",
+        "SystemProductType-5":  "Booking products",
+        "SystemProductType-2":  "Credit bundle",
+        "SystemProductType-1":  "Day pass",
+        "SystemProductType-99": "Other services",
+        "SystemProductType-3":  "Stationery"
+    }
+ }
+    

@@ -1,0 +1,33 @@
+export class CustomerPageObjects {
+  protected static URL = '/operations/coworkers';
+  protected static ADD_BUTTON = 'text="Add customer"';
+  protected static MANUAL_ENTRY_BUTTON = 'text="Manual entry"';
+  protected static COMPANY_STRUCTURE_BUTTON = 'text="Company structure"';
+  protected static MULTIPLE_CUSTOMERS_BUTTON = 'text="Multiple customers"';
+  protected static SEARCH_FILTER_INPUT_TEXT_FIELD = 'input[type="search"]';
+  protected static SEARCH_OPTION_BY_FULL_NAME = '[role="option"][title="Full name = customerNamePlaceHolder"]';
+  protected static SEARCH_OPTION_BY_SMART_SEARCH = '[role="option"][title="Smart search = customerCompanyNamePlaceHolder"]';
+  protected static SEARCH_OPTION_TEAM_BY_NAME = '[role="option"][title="Name = customerCompanyNamePlaceHolder"]';
+  protected static DROPDOWN_CUSTOMERS_TYPES = 'button.euiFilterButton:has-text("Members")';
+  protected static DROPDOWN_CUSTOMERS_TYPES_NEW = 'button[id="operations_coworkers_segement_menu_button"]';
+  protected static SHOW_ALL_TYPES_BUTTON = 'button.euiContextMenuItem:has-text("viewType")';
+  protected static INDIVIDUAL_TYPE_BUTTON = 'button.euiContextMenuItem:has-text("Individuals")';
+  protected static COMPANY_TYPE_BUTTON = 'button.euiContextMenuItem:has-text("Companies")';
+  protected static SEARCH_BY_TEXT = 'strong:has-text("PlaceHolder")';
+  protected static SEARCH_PROGRESS_BAR = '.euiBasicTable-loading';
+  protected static CLEAN_SEARCH_BUTTON = 'button[data-test-subj="clearSearchButton"]';
+  protected static SELECT_ALL_CUSTOMERS_CHECKBOX = 'input[data-test-subj="checkboxSelectAll"]';
+  protected static NUMBER_VISIBLE_ROWS_BUTTON = 'button[data-test-subj="tablePaginationPopoverButton"]';
+  protected static NUMBER_VISIBLE_ROWS_100 = 'button[data-test-subj="tablePagination-100-rows"]';
+  protected static DELETE_CUSTOMERS_BUTTON = 'text="Delete customer"';
+  protected static CONFIRMATION_BUTTON = 'button[data-test-subj="confirmModalConfirmButton"]';
+  protected static DELETE_ACTION_COMPLETED_TEXT = 'text="Action completed"';
+  protected static NO_CUSTOMERS_LABEL = `text="No items found"`;
+  protected static CLOSE_NOTIFICATION_TOAST_BUTTON = `[data-test-subj="toastCloseButton"]`;
+  protected static DELETE_CUSTOMERS_TEXT_FIELD = '[placeholder="Type \'DELETE CUSTOMER\' to continue"]';
+  protected static DELETE_CUSTOMERS_BUTTON_SIDE_MENU = '//*[contains(text(),"Text")]';
+  protected static BULK_ACTIONS_BUTTON = '//*[contains(text(),"Text")]';
+  protected static ALL_CUSTOMERS_CHECKBOX = `[data-test-subj="checkboxSelectAll"]`;
+  protected static SEARCH_OPTION_BY_CUSTOMER_NAME = '[role="option"][title="Full name = customerNamePlaceHolder"]';
+  protected static NO_CUSTOMERS_CANVAS = `.euiEmptyPrompt__main`;
+}

@@ -1,0 +1,30 @@
+export class PassPageObjects {
+  protected static PASS_PAGE_URL = `/billing/timePasses`;
+  protected static ADD_PASS_BUTTON = `text="Add pass"`;
+  protected static PASS_NAME = `text="passName"`;
+  protected static PASS_CHECK_BOX = `[aria-label="Select row 1"]`;
+  protected static ARCHIVE_PASS_BUTTON = `text="Archive 1 record"`;
+  protected static RESTORE_PASS_BUTTON = `text="Restore 1 record"`;
+  protected static CONFIRMATION_BUTTON = `text="Yes, do it"`;
+  protected static CLOSE_NOTIFICATION_TOAST_BUTTON = `[data-test-subj="toastCloseButton"]`;
+  protected static SEARCH_MENU = `#billing_timePasses_segement_menu_button`;
+  protected static SEARCH_MENU_ARCHIVED_OPTION = `text="Archived passes"`;
+  protected static SEARCH_MENU_SHOW_ALL_OPTION = `text="Show all"`;
+  protected static SEARCH_MENU_CALENDAR_DAY_OPTION = `text="Calendar day passes"`;
+  protected static SEARCH_MENU_TIME_BASED_OPTION = `text="Time-based passes"`;
+  protected static SEARCH_MENU_AVAILABLE_OPTION = `text="Available passes"`;
+  protected static SEARCH_MENU_PAY_AS_YOU_GO_MEMBERS_PASSES = `text="PAYG passes for members"`;
+  protected static SEARCH_MENU_PAY_AS_YOU_GO_CONTACTS_PASSES = `text="PAYG passes for contacts"`;
+  protected static NO_PASS_LABEL = `text="No items found"`;
+  protected static ALL_PASSES_CHECKBOX = `[data-test-subj="checkboxSelectAll"]`;
+  protected static DELETE_ALL_PASSES_BUTTON = `button[type="button"].euiButton.css-dmpes-euiButtonDisplay-s-defaultMinWidth-fill-danger`;
+  protected static NO_PASSES_CANVAS = `.euiEmptyPrompt__main`;
+  protected static VISIBLE_ROWS_BUTTON = 'button[data-test-subj="tablePaginationPopoverButton"]';
+  protected static VISIBLE_ROWS_100_OPTION = 'button[data-test-subj="tablePagination-100-rows"]';
+  protected static SEARCH_FILTER_INPUT_TEXT_FIELD = 'input[type="search"]';
+  protected static SEARCH_OPTION_BY_PASS_NAME = '[role="option"][title="Name = passNamePlaceHolder"]';
+  protected static DELETE_PASSES_BUTTON_SIDE_MENU = '//*[contains(text(),"Text")]';
+  protected static NO_PASSES_LABEL = `text="No items found"`;
+  protected static DELETE_PASSES_TEXT_FIELD = '[placeholder="Type \'DELETE\' to continue"]';
+  protected static BULK_ACTIONS_BUTTON = '//*[contains(text(),"Text")]';
+}

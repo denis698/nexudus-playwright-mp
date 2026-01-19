@@ -1,0 +1,26 @@
+[
+    {
+        "name":"office",
+        "location":"Coworking Soho (DENIS)",
+        "floor":"Ant Floor 1",
+        "type":"Office",
+        "note":"Textual data refers to any information or message conveyed in written or printed form. It can include everything from books, articles, and surveys to social media posts, chat conversations, and emails.",
+        "occupier":"Admin",
+        "connected_resource":"a2e_resource",
+        "from_date":"01/01/2024",
+        "until_date":"01/01/2030",
+        "view":"Show all"
+    },
+    {
+        "name":"other",
+        "location":"Coworking Soho (DENIS)",
+        "floor":"Ant Floor 1",
+        "type":"Other",
+        "note":"Generatedata.com is the website of the open source project with the same name.",
+        "occupier":"Admin",
+        "connected_resource":"a2e_resource",
+        "from_date":"01/01/2024",
+        "until_date":"01/01/2030",
+        "view":"Show all"
+    }
+]

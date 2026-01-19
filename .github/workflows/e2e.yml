@@ -51,14 +51,23 @@ jobs:
       - name: Run tests
         id: e2e_tests
         env:
-          AP_TEST_BASE_URL: ${{ secrets.AP_TEST_BASE_URL }}
-          AP_TEST_USERNAME: ${{ secrets.AP_TEST_USERNAME }}
-          AP_TEST_PASSWORD: ${{ secrets.AP_TEST_PASSWORD }}
-          AT_TEST_LOCATION_1: ${{ secrets.AT_TEST_LOCATION_1 }}
-          
-          MP_TEST_LOGIN_URL: ${{ secrets.MP_TEST_LOGIN_URL }}
+          #API
+          API_TEST_SPACES_URL: ${{ secrets.API_TEST_SPACES_URL }}
+          API_TEST_USERNAME: ${{ secrets.API_TEST_USERNAME }}
+          API_TEST_PASSWORD: ${{ secrets.AP_TEST_PASSWORD }}
+          API_TEST_SPACES_USERS_URL: ${{ secrets.API_TEST_SPACES_USERS_URL }}
+          API_TEST_SPACES_USER_URL: ${{ secrets.API_TEST_SPACES_USER_URL }}
+          API_TEST_SPACES_BUS_SETTINGS_URL: ${{ secrets.API_TEST_SPACES_BUS_SETTINGS_URL }}
+          API_TEST_SPACES_BUS_SETTING_URL: ${{ secrets.API_TEST_SPACES_BUS_SETTING_URL }}
+
+          #MP V5
+          MP_TEST_MARKETING_PAGE_URL: ${{ secrets.MP_TEST_MARKETING_PAGE }}
+          MP_TEST_LOGIN_PAGE_URL: ${{ secrets.MP_TEST_LOGIN_URL }}
           MP_TEST_USERNAME: ${{ secrets.MP_TEST_USERNAME }}
           MP_TEST_PASSWORD: ${{ secrets.MP_TEST_PASSWORD }}
+          MP_LOCATION_PASSWORD: ${{ secrets.MP_LOCATION_PASSWORD }}
+          MP_TEST_LOCATION_1: ${{ secrets.MP_TEST_LOCATION_1 }}
+
         run: npm run test:firefox
         
       # Step to wait for the job to complete

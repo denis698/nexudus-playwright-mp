@@ -2,7 +2,7 @@ import test from '@lib/BaseTest';
 import userData from "./testdata/login/mp/user.json"
 
 test.beforeEach(async ({ mpLoginPage }) => {
-  await mpLoginPage.navigateTo(process.env.MP_TEST_LOGIN_PAGE);
+  await mpLoginPage.navigateTo(process.env.MP_TEST_LOGIN_PAGE_URL);
   await mpLoginPage.verifyAt();
 });
 

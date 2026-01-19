@@ -2,7 +2,7 @@ const fs = require('fs');
 const lighthouse = require('lighthouse');
 const chromeLauncher = require('chrome-launcher');
 const configDotenv = require('dotenv').config();
-const baseUrl = process.env.AP_TEST_BASE_URL;
+const baseUrl = process.env.MP_TEST_LOGIN_PAGE_URL;
 
 (async () => {
   const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless'] });

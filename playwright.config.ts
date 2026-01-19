@@ -53,7 +53,7 @@ const config: PlaywrightTestConfig = {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+    baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure',
@@ -65,7 +65,7 @@ const config: PlaywrightTestConfig = {
       name: `Chromium`,
       use: {
         browserName: `chromium`,
-        baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+        baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
         ignoreHTTPSErrors: true,
         headless: true,
         contextOptions: { recordVideo: { dir: 'monocart-results/videos/', },
@@ -84,7 +84,7 @@ const config: PlaywrightTestConfig = {
       name: `Firefox`,
       use: {
         browserName: `firefox`,
-        baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+        baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
         headless: true,
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
@@ -104,7 +104,7 @@ const config: PlaywrightTestConfig = {
         headless: true,
         contextOptions: { recordVideo: { dir: 'monocart-results/videos/', },
         },
-        baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+        baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
         //Enable File Downloads
         acceptDownloads: true,
         //Artifacts
@@ -119,7 +119,7 @@ const config: PlaywrightTestConfig = {
       name: `WebKit`,
       use: {
         browserName: `webkit`,
-        baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+        baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
         headless: true,
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
@@ -132,7 +132,7 @@ const config: PlaywrightTestConfig = {
         ...devices[`Pixel 4a (5G)`],
         browserName: `chromium`,
         channel: `chrome`,
-        baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+        baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
         headless: true,
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
@@ -145,7 +145,7 @@ const config: PlaywrightTestConfig = {
     {
       name: `API`,
       use: {
-        baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+        baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
       }
     },
     {
@@ -156,7 +156,7 @@ const config: PlaywrightTestConfig = {
         headless: false,
         contextOptions: { recordVideo: { dir: 'monocart-results/videos/', },
         },
-        baseURL: process.env.AP_TEST_BASE_URL || 'http://localhost:3000',
+        baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
         //Enable File Downloads in Chrome
         acceptDownloads: true,
         //Artifacts

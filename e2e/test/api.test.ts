@@ -20,10 +20,9 @@ test.beforeEach(async ({ request }) => {
 
 test.describe('API', () => {
   test(`@20001 @smoke @api - set Footer.SayingText setting`, async function ({request}) {
+    //update
     const busValue = "Nothing will work unless Denis runs AT - "
     const authToken = {"authorization": "Bearer " + access_token};
-    
-    //update
     const modifiedValue = busValue  + new Date().toLocaleTimeString();
     const successMessage = "was successfully updated.";
     const payload = {
@@ -43,7 +42,6 @@ test.describe('API', () => {
     expect(checkResponse.json()).not.toBeNull();
     const checkResponseJson = await checkResponse.json();
     expect(checkResponseJson).toHaveProperty("Value", modifiedValue);
-    console.log(checkResponseJson);
   });
 
   });

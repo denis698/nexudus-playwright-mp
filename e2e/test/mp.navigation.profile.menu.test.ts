@@ -10,7 +10,7 @@ test.beforeEach(async ({ mpLoginPage,mpDashboardPage }) => {
 });
 
 test.describe('Navigation->User Profile Menu', () => {
-  test(`@15002 @smoke @mp.navigation - should be able to access profile penu`, async ({mpLoginPage, mpDashboardPage}) => {
+  test(`@15002 @smoke @mp.navigation - should be able to access profile penu`, async ({mpDashboardPage}) => {
     await mpDashboardPage.verifyProfileMenu(menuData.dashboard_menu);
   });
 

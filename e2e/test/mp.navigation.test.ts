@@ -14,7 +14,7 @@ test.describe('Navigation->User Profile Menu', () => {
     await mpDashboardPage.verifyProfileMenu(menuData.dashboard_admin_menu);
   });
 
-  test(`@NPA_002 @smoke @mp.navigation - admin should be able to access Profile Menu->Switch account`, async ({mpLoginPage,mpDashboardPage}) => {
+  test(`@NPA_002 @smoke @mp.navigation - user with number of profiles should be able to access Profile Menu->Switch account`, async ({mpLoginPage,mpDashboardPage}) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_ADMIN_USERNAME), String(process.env.MP_TEST_ADMIN_PASSWORD));
     await mpDashboardPage.verifyAt();
     await mpDashboardPage.verifyProfileMenu(menuData.dashboard_admin_menu);

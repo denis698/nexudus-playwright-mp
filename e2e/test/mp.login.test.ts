@@ -11,7 +11,7 @@ test.describe('Login', () => {
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
     await mpLoginPage.loginAs(String(process.env.MP_TEST_USERNAME), String(process.env.MP_TEST_PASSWORD));
     await mpDashboardPage.verifyAt();
-    await mpDashboardPage.verifyUserLoginStatus(userData.name);
+    await mpDashboardPage.verifyUserLoginStatus(userData.user_name);
   });
 
     test(`@10002 @smoke @mp.login - failed login`, async ({mpLoginPage, mpDashboardPage}) => {

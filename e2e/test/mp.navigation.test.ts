@@ -1,5 +1,6 @@
 import test from '@lib/BaseTest';
 import menuData from "./testdata/mp/navigation/profile_menu.json";
+import { expect } from '@playwright/test';
 
 test.beforeEach(async ({ mpLoginPage,mpDashboardPage }) => {
   await mpLoginPage.navigateTo(process.env.MP_TEST_LOGIN_PAGE_URL);
@@ -8,22 +9,20 @@ test.beforeEach(async ({ mpLoginPage,mpDashboardPage }) => {
 });
 
 test.describe('Navigation->User Profile Menu', () => {
-  test(`@NPA_002 @smoke @mp.navigation - admin should be able to access Profile Menu->Page editor->Admin`, async ({mpLoginPage,mpDashboardPage}) => {
+  test(`@NPA_002 @smoke @mp.navigation - admin should be able to access Profile Menu->Page editor->Admin->Switch account`, async ({mpLoginPage,mpDashboardPage}) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_ADMIN_USERNAME), String(process.env.MP_TEST_ADMIN_PASSWORD));
     await mpDashboardPage.verifyAt();
-    await mpDashboardPage.verifyProfileMenu(menuData.dashboard_admin_menu);
-  });
-
-  test(`@NPA_002 @smoke @mp.navigation - user with number of profiles should be able to access Profile Menu->Switch account`, async ({mpLoginPage,mpDashboardPage}) => {
-    await mpLoginPage.loginAs(String(process.env.MP_TEST_ADMIN_USERNAME), String(process.env.MP_TEST_ADMIN_PASSWORD));
-    await mpDashboardPage.verifyAt();
-    await mpDashboardPage.verifyProfileMenu(menuData.dashboard_admin_menu);
+    const menuOptions = await mpDashboardPage.getProfileMenu();
+    expect(menuOptions).toContain("Admin");
+    expect(menuOptions).toContain("Page Editor");
+    expect(menuOptions).toContain("Switch account");
   });
 
   test(`@NPA_002 @smoke @mp.navigation - user should be able to access Profile Menu`, async ({mpLoginPage,mpDashboardPage}) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_USERNAME), String(process.env.MP_TEST_PASSWORD));
     await mpDashboardPage.verifyAt();
-    await mpDashboardPage.verifyProfileMenu(menuData.dashboard_menu);
+    const menuOptions = await mpDashboardPage.getProfileMenu();
+    expect(menuOptions).toContain(menuData.dashboard_menu);
   });
 
 });

@@ -45,12 +45,8 @@ test.describe('API', () => {
   });
 
 test(`@20002 @smoke @api - Calendars.DefaultView`, async function ({request, testDataUtil}) {
-    //1 - cale value day
-    //2 - cal value week
-    //3 - cal value month
-    //4 - cal value list
-
-    // Generate a random number between 1 and 10 (including 1 and 10)
+    // Generate a random number between 1 and 4 
+    //1 - day, 2 - week, 3 - month, 4 - list
     const modifiedCalendarValue = String(testDataUtil.generateRandomNumber(1, 4));  
     const authToken = {"authorization": "Bearer " + access_token};
     

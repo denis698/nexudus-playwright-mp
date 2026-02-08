@@ -1,4 +1,4 @@
-import { expect, request } from "@playwright/test";
+import { expect } from "@playwright/test";
 import test from '@lib/BaseTest';
 
 let access_token: string;
@@ -19,7 +19,7 @@ test.beforeEach(async ({ request }) => {
 });
 
 test.describe('API', () => {
-  test(`@20001 @smoke @api - set Footer.SayingText setting`, async function ({request}) {
+  test(`@20001 @smoke @api - Footer.SayingText`, async function ({request}) {
     //update
     const busValue = "Nothing will work unless Denis runs AT - "
     const authToken = {"authorization": "Bearer " + access_token};
@@ -44,4 +44,35 @@ test.describe('API', () => {
     expect(checkResponseJson).toHaveProperty("Value", modifiedValue);
   });
 
+test(`@20002 @smoke @api - Calendars.DefaultView`, async function ({request, testDataUtil}) {
+    //1 - cale value day
+    //2 - cal value week
+    //3 - cal value month
+    //4 - cal value list
+
+    // Generate a random number between 1 and 10 (including 1 and 10)
+    const modifiedCalendarValue = String(testDataUtil.generateRandomNumber(1, 4));  
+    const authToken = {"authorization": "Bearer " + access_token};
+    
+    //update
+    const successMessage = "was successfully updated.";
+    const payload = {
+        "Id": 1417289008,
+        "BusinessId": 1414940210,
+        "Name": "Calendars.DefaultView",
+        "Value": modifiedCalendarValue
+    }
+    
+    const successResponse = await request.put(String(process.env.API_TEST_SPACES_BUS_SETTINGS_URL), {headers:authToken, data:payload});
+    const successResponseJson = await successResponse.json();
+    expect(successResponseJson.Message).toContain(successMessage);
+
+    //check
+    const checkResponse = await request.get(String(process.env.API_TEST_SPACES_BUS_SETTING_URL + "/" + 1417289008), {headers:authToken});
+    expect(checkResponse.status()).toBe(200);
+    expect(checkResponse.json()).not.toBeNull();
+    const checkResponseJson = await checkResponse.json();
+    expect(checkResponseJson).toHaveProperty("Value", modifiedCalendarValue);
   });
+  
+});

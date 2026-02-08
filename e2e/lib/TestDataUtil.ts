@@ -47,4 +47,10 @@ export class TestDataUtil {
     }
   }
 
+  /* Defining a custom function which returns a random number 
+  between min and max, including min and max */
+  generateRandomNumber(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
 }

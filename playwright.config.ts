@@ -121,10 +121,15 @@ const config: PlaywrightTestConfig = {
       use: {
         browserName: `webkit`,
         baseURL: process.env.MP_TEST_LOGIN_PAGE_URL || 'http://localhost:3000',
-        headless: true,
+        headless: false,
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
-        launchOptions: { slowMo: 0 }
+        //Artifacts
+        testIdAttribute: 'data-test-subj',
+        locale: 'en-GB',
+        // Emulates the user timezone.
+        timezoneId: 'Europe/London',
+        launchOptions: { slowMo: 0, args: ['--deny-permission-prompts'] } 
       },
     },
     {

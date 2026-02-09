@@ -19,7 +19,7 @@ test.beforeEach(async ({ request }) => {
 });
 
 test.describe('API', () => {
-  test(`@30002 @smoke @api - Calendars.DefaultView`, async function ({request, testDataUtil, mpLoginPage, mPBookingsMeetingRoomsPage}) {
+  test(`@RCA-301 @smoke @api - Calendars.DefaultView`, async function ({request, testDataUtil, mpLoginPage, mPBookingsMeetingRoomsPage}) {
     // Generate a random number between 1 and 4 
     //1 - day, 2 - week, 3 - month, 4 - list
     const calendarViewType = String(testDataUtil.generateRandomNumber(1, 4));  

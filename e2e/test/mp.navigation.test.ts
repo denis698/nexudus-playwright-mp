@@ -1,11 +1,12 @@
 import test from '@lib/BaseTest';
-import menuData from "./testdata/mp/navigation/profile_menu.json";
+import menuData from './testdata/mp/navigation/profile_menu.json';
 import { expect } from '@playwright/test';
 
-test.beforeEach(async ({ mpLoginPage }) => {
+test.beforeEach(async ({ mpLoginPage, mpCommonPage }) => {
   await mpLoginPage.navigateTo(process.env.MP_TEST_LOGIN_PAGE_URL);
-  await mpLoginPage.verifyAt();
+  await mpCommonPage.verifyProtectionPopup();
   await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
+  await mpLoginPage.verifyAt();
 });
 
 test.describe('Navigation->User Profile Menu', () => {

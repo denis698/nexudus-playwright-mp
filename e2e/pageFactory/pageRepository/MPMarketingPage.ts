@@ -17,13 +17,7 @@ export class MPMarketingPage extends MPMarketingPageObjects {
     await webActions.navigate(url);
   }
 
-  async verifyAt(): Promise<void> {
-    await webActions.verifyURL(MPMarketingPageObjects.PAGE_URL);
-    await webActions.verifyTitle(MPMarketingPageObjects.PAGE_TITLE);
-    await webActions.verifyPageElement(MPMarketingPageObjects.SEARCH_BUTTON);
-  }
-
-  async isElementVisibleWithName(name:string): Promise<boolean> {
-    return await webActions.isVisibleByText(name);
+  async verifySignInButtonIsVisible(): Promise<void> {
+    await webActions.verifyPageElement(MPMarketingPageObjects.SIGN_IN_BUTTON);
   }
 }

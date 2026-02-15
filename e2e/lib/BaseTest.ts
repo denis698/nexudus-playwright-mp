@@ -29,6 +29,7 @@ import { AddMultipleCustomersDialog } from '@pages/AddMultipleCustomersDialog';
 import { FinancePage } from '@pages/FinancePage';
 import { InvoicesPage } from '@pages/InvoicesPage';
 import { AddInvoicePage } from '@pages/AddInvoicePage';
+import { MPCommonPage } from '@pages/MPCommonPage';
 import { MPLoginPage } from '@pages/MPLoginPage';
 import { MPMarketingPage } from '@pages/MPMarketingPage';
 import { MPDashboardPage } from '@pages/MPDashboardPage';
@@ -37,7 +38,7 @@ import { AddResourceTypePage } from '@pages/AddResourceTypePage';
 import { TimeCreditsPage } from '@pages/TimeCreditsPage';
 import { AddTimeCreditsPage } from '@pages/AddTimeCreditsPage';
 import { MPBookingsMeetingRoomsPage } from '@pages/MPBookingsMeetingRoomsPage';
-
+import { MPInvoicesPage } from '@pages/MPInvoicesPage';
 
 const test = baseTest.extend<{
   loginPage: LoginPage;
@@ -74,11 +75,12 @@ const test = baseTest.extend<{
   addResourceTypePage: AddResourceTypePage;
   timeCreditsPage: TimeCreditsPage;
   addTimeCreditsPage: AddTimeCreditsPage;
+  mpCommonPage: MPCommonPage;
   mpLoginPage: MPLoginPage;
   mpMarketingPage: MPMarketingPage;
   mpDashboardPage: MPDashboardPage;
   mPBookingsMeetingRoomsPage: MPBookingsMeetingRoomsPage;
-  
+  mpInvoicesPage: MPInvoicesPage;
 }>({
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
@@ -176,6 +178,9 @@ const test = baseTest.extend<{
   addResourceTypePage: async ({ page }, use) => {
     await use(new AddResourceTypePage(page));
   },
+  mpCommonPage: async ({ page }, use) => {
+    await use(new MPCommonPage(page));
+  },
   mpLoginPage: async ({ page }, use) => {
     await use(new MPLoginPage(page));
   },
@@ -193,7 +198,10 @@ const test = baseTest.extend<{
   },
   mPBookingsMeetingRoomsPage: async ({ page }, use) => {
     await use(new MPBookingsMeetingRoomsPage(page));
-  }
+  },
+  mpInvoicesPage: async ({ page }, use) => {
+    await use(new MPInvoicesPage(page));
+  },
 });
 
 test.beforeEach(async ({}, testInfo) => {
@@ -208,9 +216,13 @@ test.beforeEach(async ({}, testInfo) => {
 });
 
 test.afterEach(async ({ page }, testInfo) => {
-  const storageState = 'monocart-results/storage/' + testInfo.title.slice(0, 5) + '_storageState.json';
+  const storageState =
+    'monocart-results/storage/' + testInfo.title.slice(0, 5) + '_storageState.json';
   if (testInfo.status !== 'passed') {
-    console.log(new Date().toLocaleTimeString() + ` - ${testInfo.title} - failed after ${testInfo.duration / 1000} sec`);
+    console.log(
+      new Date().toLocaleTimeString() +
+        ` - ${testInfo.title} - failed after ${testInfo.duration / 1000} sec`
+    );
     console.log('# ' + testInfo.errors);
     // Save signed-in state to 'test_id_storageState.json'.
     await page.context().storageState({ path: storageState });

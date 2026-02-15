@@ -1,5 +1,3 @@
 export class MPMarketingPageObjects {
-  protected static SEARCH_BUTTON = `text="Search"`;
-  protected static PAGE_URL = `/`;
-  protected static PAGE_TITLE = `...`;
+  protected static SIGN_IN_BUTTON = `text="Sign in"`;
 }

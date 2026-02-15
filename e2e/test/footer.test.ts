@@ -19,7 +19,7 @@ test.beforeEach(async ({ request }) => {
 });
 
 test.describe('API', () => {
-  test(`@NFA_04 @smoke @mp.navigation - Footer.SayingText`, async function ({request,mpLoginPage,mpMarketingPage}) {
+  test(`@NFA_04 @smoke @mp.navigation - Footer.SayingText`, async function ({request,mpLoginPage, mpMarketingPage, mpCommonPage}) {
     const authToken = {"authorization": "Bearer " + access_token};
     const footerName = "Nothing will work unless Denis runs AT - "  + new Date().toLocaleTimeString();
     
@@ -46,13 +46,13 @@ test.describe('API', () => {
     //check UI
     await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
-    await mpMarketingPage.verifyAt();
-    const defaultCalendarView = await mpMarketingPage.isElementVisibleWithName(footerName);
-    expect(defaultCalendarView).toBeTruthy()
+    await mpMarketingPage.verifySignInButtonIsVisible();
+    const footerNameVisible = await mpCommonPage.isElementVisibleWithName(footerName);
+    expect(footerNameVisible).toBeTruthy()
 
   });
 
-  test(`@NFA_05 @smoke @mp.navigation - Footer.SayingAuthor`, async function ({request, testDataUtil, mpLoginPage, mpMarketingPage}) {
+  test(`@NFA_05 @smoke @mp.navigation - Footer.SayingAuthor`, async function ({request, testDataUtil, mpLoginPage, mpMarketingPage, mpCommonPage}) {
     const authToken = {"authorization": "Bearer " + access_token};
     // Generate a random number between 1 and 3 
     //1 - Denis Gershengoren, 2 - Steven Hobbs, 3 - Olena Maistrenko
@@ -98,9 +98,9 @@ test.describe('API', () => {
     //check UI
     await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
-    await mpMarketingPage.verifyAt();
-    const defaultCalendarView = await mpMarketingPage.isElementVisibleWithName(authorName);
-    expect(defaultCalendarView).toBeTruthy()
+    await mpMarketingPage.verifySignInButtonIsVisible();
+    const authorNameVisible = await mpCommonPage.isElementVisibleWithName(authorName);
+    expect(authorNameVisible).toBeTruthy()
   });
     
 });

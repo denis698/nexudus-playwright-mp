@@ -4,7 +4,6 @@ import { expect } from '@playwright/test';
 
 test.beforeEach(async ({ mpLoginPage, mpCommonPage }) => {
   await mpLoginPage.navigateTo(process.env.MP_TEST_LOGIN_PAGE_URL);
-  await mpCommonPage.verifyProtectionPopup();
   await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
   await mpLoginPage.verifyAt();
 });

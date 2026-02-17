@@ -7,14 +7,14 @@ test.beforeEach(async ({ mpLoginPage, mpCommonPage }) => {
 });
 
 test.describe('Login', () => {
-  test(`@10001 @smoke @mp.login - login`, async ({mpLoginPage, mpDashboardPage}) => {
+  test(`@SA_01a @smoke @mp.login - login`, async ({mpLoginPage, mpDashboardPage}) => {
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
     await mpLoginPage.loginAs(String(process.env.MP_TEST_USERNAME), String(process.env.MP_TEST_PASSWORD));
     await mpDashboardPage.verifyAt();
     await mpDashboardPage.verifyUserLoginStatus(userData.user_name);
   });
 
-    test(`@10002 @smoke @mp.login - failed login`, async ({mpLoginPage}) => {
+    test(`@SA_01b @smoke @mp.login - failed login`, async ({mpLoginPage}) => {
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
     await mpLoginPage.enterEmail("invalid@nexudus.com");
     await mpLoginPage.enterPassword("INVALID");

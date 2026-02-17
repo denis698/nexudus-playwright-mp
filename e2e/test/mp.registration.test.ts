@@ -9,8 +9,8 @@ test.beforeEach(async ({ mpLoginPage }) => {
 
 test.describe('MP Account', () => {  
   test(`@SA_05a @smoke @mp.account - create individual account`, async ({mpLoginPage, mpCreateAccountDialog, mpDashboardPage}) => {
-    let randomTimeValue = new Date().toLocaleTimeString();
-    randomTimeValue = randomTimeValue.replace("AM","").replace("PM","");
+    //Will always create a number of 6 digits and it ensures the first digit will never be 0.
+    const randomTimeValue = Math.floor(100000 + Math.random() * 900000);
     const fullName = 'Denis ' + randomTimeValue;
     const email = 'denis+' + randomTimeValue + '@nexudus.com';
 

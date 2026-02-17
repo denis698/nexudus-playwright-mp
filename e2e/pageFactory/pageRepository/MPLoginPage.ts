@@ -47,11 +47,11 @@ export class MPLoginPage extends MPLoginPageObjects {
     await webActions.clickElementByRole('button', 'Login');
   }
 
-  async verifyLoginError(): Promise<void> {
-    await webActions.waitForVisibleElementText('Invalid email/password');
+  async getLoginError(): Promise<string> {
+    return await webActions.getTextFromElement(MPLoginPageObjects.ERROR_POPUP);
   }
 
-  async createAccount(): Promise<void> {
-    await webActions.clickElementByRole('button', 'Sign in');
+  async accessCreateAccountDialog(): Promise<void> {
+    await webActions.clickElementByRole('link', 'Create an account');
   }
 }

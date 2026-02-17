@@ -19,10 +19,9 @@ export class MPDashboardPage extends MPDashboardPageObjects {
     await webActions.verifyTitle(MPDashboardPageObjects.PAGE_TITLE);
   }
 
-  async verifyUserLoginStatus(expectedUserName:string): Promise<void> {
+  async getUserLoginStatus(userName:string): Promise<string> {
     await webActions.clickElementByRole("img", "chevron-down icon");
-    const userLoginName = await webActions.getTextFromElementByRole('link', expectedUserName);
-    expect(userLoginName).toContain(expectedUserName);
+    return await webActions.getTextFromElementByRole('link', userName);
   }
 
   async getProfileMenu(): Promise<string> {

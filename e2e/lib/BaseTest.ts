@@ -39,6 +39,7 @@ import { TimeCreditsPage } from '@pages/TimeCreditsPage';
 import { AddTimeCreditsPage } from '@pages/AddTimeCreditsPage';
 import { MPBookingsMeetingRoomsPage } from '@pages/MPBookingsMeetingRoomsPage';
 import { MPInvoicesPage } from '@pages/MPInvoicesPage';
+import { MPCreateAccountDialog } from '@pages/MPCreateAccountDialog';
 
 const test = baseTest.extend<{
   loginPage: LoginPage;
@@ -81,6 +82,8 @@ const test = baseTest.extend<{
   mpDashboardPage: MPDashboardPage;
   mPBookingsMeetingRoomsPage: MPBookingsMeetingRoomsPage;
   mpInvoicesPage: MPInvoicesPage;
+  mpCreateAccountDialog: MPCreateAccountDialog;
+
 }>({
   loginPage: async ({ page }, use) => {
     await use(new LoginPage(page));
@@ -201,6 +204,9 @@ const test = baseTest.extend<{
   },
   mpInvoicesPage: async ({ page }, use) => {
     await use(new MPInvoicesPage(page));
+  },
+  mpCreateAccountDialog: async ({ page }, use) => {
+    await use(new MPCreateAccountDialog(page));
   },
 });
 

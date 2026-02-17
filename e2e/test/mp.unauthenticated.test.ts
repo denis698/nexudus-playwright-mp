@@ -11,7 +11,7 @@ test.describe('Navigation - Unauthenticated Access, Location password provided',
     await mpMarketingPage.verifySignInButtonIsVisible();
   });
 
-  test(`@NPA_002 @smoke @mp.navigation - open invoices page`, async ({
+  test(`@NPA_002c @smoke @mp.navigation - open invoices page`, async ({
     mpInvoicesPage,
     mpLoginPage,
   }) => {

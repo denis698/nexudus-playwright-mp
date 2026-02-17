@@ -18,7 +18,7 @@ test.beforeEach(async ({ request }) => {
   access_token = responceData.access_token;
 });
 
-test.describe('API', () => {
+test.describe('Calendar', () => {
   test(`@RCA_301 @smoke @api - Calendars.DefaultView`, async function ({request, testDataUtil, mpLoginPage, mPBookingsMeetingRoomsPage}) {
     // Generate a random number between 1 and 4 
     //1 - day, 2 - week, 3 - month, 4 - list

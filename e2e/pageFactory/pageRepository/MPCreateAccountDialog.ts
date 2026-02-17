@@ -18,13 +18,12 @@ export class MPCreateAccountDialog extends MPCreateAccountDialogObjects {
     await webActions.verifyPageElement(MPCreateAccountDialogObjects.EMAIL_TEXT_FIELD);
   }
 
-  async createAccount(fullname:string, email:string): Promise<void> {
+  async createAccount(fullname:string, email:string, type:string): Promise<void> {
     await webActions.clickElementByRole('textbox', 'Full name*');
     await webActions.enterTextByRole('textbox', 'Full name*', fullname);
-
     await webActions.clickElementByRole('textbox', 'Email*');
     await webActions.enterTextByRole('textbox', 'Email*', email);
-
+    await webActions.clickElementByLabelAndByOption('I\'m signing up as a*', type);
     await webActions.clickElementByRole('button', 'Create account and continue');
   }
 

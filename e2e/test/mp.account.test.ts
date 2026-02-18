@@ -8,7 +8,7 @@ test.beforeEach(async ({ mpLoginPage }) => {
 });
 
 test.describe('MP Account', () => {  
-  test(`@SA_05a @smoke @mp.account - create individual account`, async ({mpLoginPage, mpCreateAccountDialog, mpDashboardPage}) => {
+  test(`@SA_05a @smoke @mp.account - individual account`, async ({mpLoginPage, mpCreateAccountDialog, mpDashboardPage}) => {
     //Will always create a number of 6 digits and it ensures the first digit will never be 0.
     const randomValue = Math.floor(100000 + Math.random() * 900000);
     const fullName = 'Denis ' + randomValue;
@@ -22,7 +22,7 @@ test.describe('MP Account', () => {
     expect(userLoginName).toContain(fullName);
   });
 
-  test(`@SA_05b @smoke @mp.account - create a company account`, async ({mpLoginPage, mpCreateAccountDialog, mpDashboardPage}) => {
+  test(`@SA_05b @smoke @mp.account - company account`, async ({mpLoginPage, mpCreateAccountDialog, mpDashboardPage}) => {
     //Will always create a number of 6 digits and it ensures the first digit will never be 0.
     const randomValue = Math.floor(100000 + Math.random() * 900000);
     const fullName = 'Denis ' + randomValue;
@@ -32,9 +32,8 @@ test.describe('MP Account', () => {
     await mpCreateAccountDialog.verifyAt();
     await mpCreateAccountDialog.createAccount(fullName, email, 'Company');
     await mpDashboardPage.verifyAt();
-    //TEMP disabling failing code
-    //const userFullName = await mpDashboardPage.getUserLoginStatus(fullName + ' Company');
-    //expect(userFullName).toContain(fullName);
+    const userFullName = await mpDashboardPage.getUserLoginStatus(fullName + ' Company');
+    expect(userFullName).toContain(fullName);
 
   });
 

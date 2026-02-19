@@ -46,13 +46,13 @@ test.describe('Footer', () => {
     //check UI
     await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
-    await mpMarketingPage.verifySignInButtonIsVisible();
+    await mpMarketingPage.verifyAt();
     const footerNameVisible = await mpCommonPage.isElementVisibleWithName(footerName);
     expect(footerNameVisible).toBeTruthy()
 
   });
 
-  test(`@NFA_05 @smoke @mp.footer - Footer.SayingAuthor`, async function ({request, testDataUtil, mpLoginPage, mpMarketingPage, mpCommonPage}) {
+  test(`@NFA_05 @smoke @mp.footer - Footer.SayingAuthor`, async function ({request, testDataUtil, mpLoginPage, mpMarketingPage}) {
     const authToken = {"authorization": "Bearer " + access_token};
     // Generate a random number between 1 and 3 
     //1 - Denis Gershengoren, 2 - Steven Hobbs, 3 - Olena Maistrenko
@@ -98,9 +98,136 @@ test.describe('Footer', () => {
     //check UI
     await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
-    await mpMarketingPage.verifySignInButtonIsVisible();
-    const authorNameVisible = await mpCommonPage.isElementVisibleWithName(authorName);
+    await mpMarketingPage.verifyAt();
+    const authorNameVisible = await mpMarketingPage.isElementVisibleWithName(authorName);
     expect(authorNameVisible).toBeTruthy()
   });
+
+  test(`@NFA_06a @smoke @mp.footer - Social.Facebook`, async function ({request, mpLoginPage, mpMarketingPage}) {
+    const authToken = {"authorization": "Bearer " + access_token};
+    const social = 'http://www.facebook.com';  
+
+    //update
+    const successMessage = "was successfully updated.";
+    const payload = {
+        "Id": 1417289147,
+        "BusinessId": 1414940210,
+        "Name": "Social.Facebook",
+        "Value": social
+    }
     
+    const successResponse = await request.put(String(process.env.API_TEST_SPACES_BUS_SETTINGS_URL), {headers:authToken, data:payload});
+    const successResponseJson = await successResponse.json();
+    expect(successResponseJson.Message).toContain(successMessage);
+
+    //check api
+    const checkResponse = await request.get(String(process.env.API_TEST_SPACES_BUS_SETTING_URL + "/" + 1417289147), {headers:authToken});
+    expect(checkResponse.status()).toBe(200);
+    expect(checkResponse.json()).not.toBeNull();
+    const checkResponseJson = await checkResponse.json();
+    expect(checkResponseJson).toHaveProperty("Value", social);
+
+    //check UI
+    await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
+    await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
+    await mpMarketingPage.verifyAt();
+    const authorNameVisible = await mpMarketingPage.isElementVisible('[href="' + social + '"]');
+    expect(authorNameVisible).toBeTruthy()
+  });
+  
+  test(`@NFA_06b @smoke @mp.footer - Social.Flickr`, async function ({request, mpLoginPage, mpMarketingPage}) {
+    const authToken = {"authorization": "Bearer " + access_token};
+    const social = 'http://www.flickr.com';  
+
+    //update
+    const successMessage = "was successfully updated.";
+    const payload = {
+        "Id": 1417289146,
+        "BusinessId": 1414940210,
+        "Name": "Social.Flickr",
+        "Value": social
+    }
+    
+    const successResponse = await request.put(String(process.env.API_TEST_SPACES_BUS_SETTINGS_URL), {headers:authToken, data:payload});
+    const successResponseJson = await successResponse.json();
+    expect(successResponseJson.Message).toContain(successMessage);
+
+    //check api
+    const checkResponse = await request.get(String(process.env.API_TEST_SPACES_BUS_SETTING_URL + "/" + 1417289146), {headers:authToken});
+    expect(checkResponse.status()).toBe(200);
+    expect(checkResponse.json()).not.toBeNull();
+    const checkResponseJson = await checkResponse.json();
+    expect(checkResponseJson).toHaveProperty("Value", social);
+
+    //check UI
+    await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
+    await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
+    await mpMarketingPage.verifyAt();
+    const authorNameVisible = await mpMarketingPage.isElementVisible('[href="' + social + '"]');
+    expect(authorNameVisible).toBeTruthy()
+  });
+
+  test(`@NFA_06c @smoke @mp.footer - Social.Instagram`, async function ({request, mpLoginPage, mpMarketingPage}) {
+    const authToken = {"authorization": "Bearer " + access_token};
+    const social = 'http://www.instagram.com';  
+
+    //update
+    const successMessage = "was successfully updated.";
+    const payload = {
+        "Id": 1417289148,
+        "BusinessId": 1414940210,
+        "Name": "Social.Instagram",
+        "Value": social
+    }
+    
+    const successResponse = await request.put(String(process.env.API_TEST_SPACES_BUS_SETTINGS_URL), {headers:authToken, data:payload});
+    const successResponseJson = await successResponse.json();
+    expect(successResponseJson.Message).toContain(successMessage);
+
+    //check api
+    const checkResponse = await request.get(String(process.env.API_TEST_SPACES_BUS_SETTING_URL + "/" + 1417289148), {headers:authToken});
+    expect(checkResponse.status()).toBe(200);
+    expect(checkResponse.json()).not.toBeNull();
+    const checkResponseJson = await checkResponse.json();
+    expect(checkResponseJson).toHaveProperty("Value", social);
+
+    //check UI
+    await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
+    await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
+    await mpMarketingPage.verifyAt();
+    const authorNameVisible = await mpMarketingPage.isElementVisible('[href="' + social + '"]');
+    expect(authorNameVisible).toBeTruthy()
+  });
+
+  test(`@NFA_06d @smoke @mp.footer - Social.Twitter`, async function ({request, mpLoginPage, mpMarketingPage}) {
+    const authToken = {"authorization": "Bearer " + access_token};
+    const social = 'http://www.x.com';  
+
+    //update
+    const successMessage = "was successfully updated.";
+    const payload = {
+        "Id": 1417289145,
+        "BusinessId": 1414940210,
+        "Name": "Social.Twitter",
+        "Value": social
+    }
+    
+    const successResponse = await request.put(String(process.env.API_TEST_SPACES_BUS_SETTINGS_URL), {headers:authToken, data:payload});
+    const successResponseJson = await successResponse.json();
+    expect(successResponseJson.Message).toContain(successMessage);
+
+    //check api
+    const checkResponse = await request.get(String(process.env.API_TEST_SPACES_BUS_SETTING_URL + "/" + 1417289145), {headers:authToken});
+    expect(checkResponse.status()).toBe(200);
+    expect(checkResponse.json()).not.toBeNull();
+    const checkResponseJson = await checkResponse.json();
+    expect(checkResponseJson).toHaveProperty("Value", social);
+
+    //check UI
+    await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
+    await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
+    await mpMarketingPage.verifyAt();
+    const authorNameVisible = await mpMarketingPage.isElementVisible('[href="' + social + '"]');
+    expect(authorNameVisible).toBeTruthy()
+  });
 });

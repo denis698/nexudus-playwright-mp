@@ -8,7 +8,7 @@ test.describe('Navigation - Unauthenticated Access, Location password provided',
   });
 
   test(`@NPA_001 @smoke @mp.navigation - open base URL`, async ({ mpMarketingPage }) => {
-    await mpMarketingPage.verifySignInButtonIsVisible();
+    await mpMarketingPage.verifyAt();
   });
 
   test(`@NPA_002c @smoke @mp.navigation - open invoices page`, async ({

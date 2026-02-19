@@ -394,15 +394,11 @@ export class WebActions {
     });
   }
 
-  async verifyElementIsDisplayed(
-    locator: string,
-    errorMessage: string
-  ): Promise<void> {
-    await this.page
-      .waitForSelector(locator, { state: `visible`, timeout: 30000 })
-      .catch(() => {
+  async verifyElementIsDisplayed(locator: string, errorMessage: string): Promise<void> {
+    await this.page.waitForSelector(locator, { state: `visible`, timeout: 30000 })
+      .catch(() => { 
         throw new Error(`${errorMessage}`);
-      });
+       });
   }
 
   async expectToBeTrue(status: boolean, errorMessage: string): Promise<void> {
@@ -447,6 +443,14 @@ export class WebActions {
 
   async isVisibleByText(text:string): Promise<boolean> {
     return await this.page.getByText(text).isVisible();
+  }
+
+  async isVisible(selector:string): Promise<boolean> {
+    // await this.page.waitForSelector(locator, { state: `visible`, timeout: 30000 })
+    //       .catch(() => { 
+    //     throw new Error(`${errorMessage}`);
+    // });
+    return await this.page.locator(selector).isVisible();
   }
 
 }

@@ -25,8 +25,12 @@ export class MPMarketingPage extends MPMarketingPageObjects {
     return await webActions.isVisibleByText(name);
   }
 
-  async isElementVisibleByRole(name:string): Promise<boolean> {
-    return await webActions.isVisibleByRole('button', name)
+  async isElementVisibleWithExactName(name:string): Promise<boolean> {
+    return await webActions.isVisibleByExactText(name);
+  }
+
+  async isElementVisibleByRole(role:any, name:string): Promise<boolean> {
+    return await webActions.isVisibleByRole(role, name)
   }
 
 

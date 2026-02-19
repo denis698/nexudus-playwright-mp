@@ -445,6 +445,10 @@ export class WebActions {
     return await this.page.getByText(text).isVisible();
   }
 
+  async isVisibleByExactText(text:string): Promise<boolean> {
+    return await this.page.getByText(text, { exact: true }).isVisible();
+  }
+
   async isVisible(selector:string): Promise<boolean> {
     return await this.page.locator(selector).isVisible();
   }

@@ -19,6 +19,36 @@ test.beforeEach(async ({ request }) => {
 });
 
 test.describe('Footer', () => {
+    test(`@NFA_01 @smoke @mp.footer - Footer.Links`, async function ({ mpLoginPage, mpMarketingPage }) {
+    const footerHeaders  = ["Contact", "Services", "Help"];   
+    const footerCopyright  = "© Denis Gershengoren [London Office]"; 
+    const footerLiks  = ["Contact us", "Book a tour", "Join a plan",
+                         "Events", "Bookings", "Day offices",
+                         "Event spaces", "Hot desks", "Kitchens", "Labs", "Meeting rooms", "Other", "Storage units", "Treatment rooms",
+                         "FAQ", "Help Desk"];    
+
+    await mpLoginPage.navigateTo(process.env.MP_TEST_MARKETING_PAGE_URL + process.env.MP_TEST_USER);
+    await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
+    await mpMarketingPage.verifyAt();
+  
+    for (var header of footerHeaders) {
+      const isFooterHeaderVisible = await mpMarketingPage.isElementVisibleWithExactName(header);
+      expect(isFooterHeaderVisible).toBeTruthy();
+    }
+
+    const isFooterCopyrightVisible = await mpMarketingPage.isElementVisibleWithName(footerCopyright);
+    expect(isFooterCopyrightVisible).toBeTruthy();
+
+    for (var link of footerLiks) {
+      const isFooterLinkVisible = await mpMarketingPage.isElementVisibleByRole('link', link);
+      expect(isFooterLinkVisible).toBeTruthy();
+    }
+
+  });
+
+  // await page.getByRole('checkbox', { name: 'Dark mode' }).uncheck();
+  // await page.getByRole('checkbox', { name: 'Dark mode' }).check();
+  
   test(`@NFA_03 @smoke @mp.footer - Footer.Language`, async function ({mpLoginPage, mpMarketingPage, testDataUtil}) {
     // Generate a random number between 1 and 4 
     //1 - Spanish, 2 - English (US), 3 - English (int)
@@ -44,7 +74,7 @@ test.describe('Footer', () => {
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
     await mpMarketingPage.verifyAt();
     await mpMarketingPage.setLanguage(name);
-    const languageNameVisible = await mpMarketingPage.isElementVisibleByRole(name);
+    const languageNameVisible = await mpMarketingPage.isElementVisibleByRole('button', name);
     expect(languageNameVisible).toBeTruthy()
   });
 

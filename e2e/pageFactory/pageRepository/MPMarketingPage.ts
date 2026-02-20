@@ -43,4 +43,8 @@ export class MPMarketingPage extends MPMarketingPageObjects {
     await webActions.clickElementByRole('button', name);
   }
 
+  async delayInTest(time: number): Promise<void> {
+    await webActions.delay(time);
+  }
+
 }

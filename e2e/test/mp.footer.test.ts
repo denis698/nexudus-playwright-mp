@@ -90,6 +90,7 @@ test.describe('Footer', () => {
     await mpLoginPage.login(String(process.env.MP_LOCATION_PASSWORD));
     await mpMarketingPage.verifyAt();
     await mpMarketingPage.setLanguage(name);
+    await mpMarketingPage.delayInTest(1000); // delay for waiting for language change
     const languageNameVisible = await mpMarketingPage.isElementVisibleByRole('button', name);
     expect(languageNameVisible).toBeTruthy()
   });

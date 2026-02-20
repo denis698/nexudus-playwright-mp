@@ -231,7 +231,8 @@ test.afterEach(async ({ page }, testInfo) => {
     );
     console.log('# ' + testInfo.errors);
     // Save signed-in state to 'test_id_storageState.json'.
-    await page.context().storageState({ path: storageState });
+    //TEMP CODE - disabling storage stage
+    //await page.context().storageState({ path: storageState });
   }
 });
 

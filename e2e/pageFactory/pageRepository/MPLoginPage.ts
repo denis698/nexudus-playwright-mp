@@ -14,7 +14,6 @@ export class MPLoginPage extends MPLoginPageObjects {
   }
 
   async verifyAt(): Promise<void> {
-    await webActions.waitForFinishLoading();
     await webActions.verifyPageElement(MPLoginPageObjects.EMAIL_TEXT_FIELD);
     await webActions.verifyPageElement(MPLoginPageObjects.PASSWORD_TEXT_FIELD);
     await webActions.verifyURL(MPLoginPageObjects.LOGIN_PAGE_URL);

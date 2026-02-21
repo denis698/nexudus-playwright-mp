@@ -20,7 +20,6 @@ export class MPCommonPage extends MPCommonPageObjects {
   }
 
   async verifyProtectionPopup(): Promise<void> {
-    await webActions.waitForFinishLoading();
     await webActions.verifyPageElement(MPCommonPageObjects.PROTECTION_POPUP_PASSWORD_INPUT);
     await webActions.verifyPageElement(MPCommonPageObjects.PROTECTION_POPUP__MESSAGE);
   }

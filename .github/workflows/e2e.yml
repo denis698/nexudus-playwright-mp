@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # adding the workflow_dispatch so it can be triggered manually
     inputs:
       text_to_print:
-        description: 'Run tests for Member Portal V5?'
+        description: 'Run tests for MPV5 ?'
         required: true
         default: 'Testing Member Portal V5'
   schedule: #Schedule the e2e job to run at 10:30 pm daily.

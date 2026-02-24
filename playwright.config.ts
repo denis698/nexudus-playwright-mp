@@ -15,7 +15,7 @@ const config: PlaywrightTestConfig = {
   grep: [new RegExp('@smoke')],
   //grepInvert: [new RegExp("@smoke"), new RegExp("@invoice")],
   /* Maximum time one test can run for is 90 sec */
-  timeout: 90 * 1000,
+  timeout: 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.

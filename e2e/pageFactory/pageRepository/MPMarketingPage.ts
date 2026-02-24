@@ -18,7 +18,7 @@ export class MPMarketingPage extends MPMarketingPageObjects {
   }
 
   async verifyAt(): Promise<void> {
-    await webActions.verifyPageElement(MPMarketingPageObjects.SIGN_IN_BUTTON);
+    await webActions.verifyPageElement(MPMarketingPageObjects.SEARCH);
   }
 
   async isElementVisibleWithName(name:string): Promise<boolean> {
@@ -33,7 +33,6 @@ export class MPMarketingPage extends MPMarketingPageObjects {
     return await webActions.isVisibleByRole(role, name)
   }
 
-
   async isElementVisible(selector:string): Promise<boolean> {
     return await webActions.isVisible(selector);
   }
@@ -45,6 +44,11 @@ export class MPMarketingPage extends MPMarketingPageObjects {
 
   async delayInTest(time: number): Promise<void> {
     await webActions.delay(time);
+  }
+
+  async accessDashboard(): Promise<void> {
+    await webActions.clickElementByRole("img", "chevron-down icon");
+    await webActions.clickElementByRole('link', 'Dashboard');    
   }
 
 }

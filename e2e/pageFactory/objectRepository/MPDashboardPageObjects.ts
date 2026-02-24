@@ -7,5 +7,5 @@ export class MPDashboardPageObjects {
   protected static OUNBOARDING_SECTION = `.onboarding-section`;
   protected static DROPDOWN = `.dropdown`;
   protected static PROFILE_DROPDOWN = `[aria-labelledby="profileDropdown"]`;
-  
+  protected static PROFILE_ICON = `.navbar-brand-item`;
 }

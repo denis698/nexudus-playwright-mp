@@ -33,4 +33,13 @@ export class MPDashboardPage extends MPDashboardPageObjects {
     await webActions.clickElementByRole("button", "Sign in");
   }
 
+  async accessMarketing(): Promise<void> {
+    await webActions.clickElement(MPDashboardPageObjects.PROFILE_ICON);
+  }
+
+  async accessInvoices(): Promise<void> {
+    await webActions.clickElementByRole("img", "chevron-down icon");
+    await webActions.clickElementByRole('link', 'Invoices');    
+  }
+
 }

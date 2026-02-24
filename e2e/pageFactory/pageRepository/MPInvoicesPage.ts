@@ -14,9 +14,13 @@ export class MPInvoicesPage extends MPInvoicesPageObjects {
   }
 
   async verifyAt(): Promise<void> {
-      await webActions.verifyPageElement(MPInvoicesPageObjects.INVOICE_MENU.replace(`/locuser`, process.env.MP_TEST_USER));
-      await webActions.verifyURL(MPInvoicesPageObjects.PAGE_URL);
-      await webActions.verifyTitle(MPInvoicesPageObjects.PAGE_TITLE);
+    await webActions.verifyPageElement(MPInvoicesPageObjects.INVOICE_MENU.replace(`/locuser`, process.env.MP_TEST_USER));
+    await webActions.verifyURL(MPInvoicesPageObjects.PAGE_URL);
+    await webActions.verifyTitle(MPInvoicesPageObjects.PAGE_TITLE);
   }
  
+  async accessDashboard(): Promise<void> {
+    await webActions.clickElementByRole("img", "chevron-down icon");
+    await webActions.clickElementByRole('link', 'Dashboard');    
+  }
 }

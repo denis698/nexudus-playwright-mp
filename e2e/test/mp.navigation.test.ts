@@ -10,7 +10,9 @@ test.beforeEach(async ({ mpLoginPage,mpDashboardPage }) => {
 });
 
 test.describe('Navigation->User Profile Menu', () => {
-  test.skip(`@NPA_002a @smoke @mp.nav - admin access user_profile_menu->page_editor->admin->switch_account`, async ({mpLoginPage,mpDashboardPage}) => {
+  test.skip(`@NPA_002a @smoke @mp.nav - admin access user profile menu->page editor->admin->switch account`, async ({
+    mpLoginPage,
+    mpDashboardPage}) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_ADMIN_USERNAME), String(process.env.MP_TEST_ADMIN_PASSWORD));
     await mpDashboardPage.verifyAt();
     const menuOptions = await mpDashboardPage.getProfileMenu();
@@ -19,7 +21,8 @@ test.describe('Navigation->User Profile Menu', () => {
     expect(menuOptions).toContain("Switch account");
   });
 
-  test(`@NPA_002 @smoke @mp.nav - access user_profile_menu`, async ({mpDashboardPage}) => {
+  test(`@NPA_002 @smoke @mp.nav - access user profile menu options`, async ({
+    mpDashboardPage}) => {
     const menuOptions = await mpDashboardPage.getProfileMenu();
     expect(menuOptions).toContain(menuData.dashboard_menu);
     expect(menuOptions).not.toContain("Switch account");
@@ -27,16 +30,37 @@ test.describe('Navigation->User Profile Menu', () => {
     expect(menuOptions).not.toContain("Switch account");
   });
 
-  test(`@NPA_003 & @NPA_012 @smoke @mp.nav - access user_profile_menu`, async ({
+  test(`@NPA_003 & @NPA_012 @smoke @mp.nav - select user profile menu options`, async ({
     mpDashboardPage,
     mpMarketingPage,
-    mpInvoicesPage}) => {
+    mpInvoicesPage,
+    mpBookingsPage }) => {
+    
+    //NPA_03
     await mpDashboardPage.accessMarketing();
     await mpMarketingPage.verifyAt();
     await mpMarketingPage.accessDashboard();
     await mpDashboardPage.verifyAt();
+    
+    //NPA_04
     await mpDashboardPage.accessInvoices();
     await mpInvoicesPage.verifyAt();
+    await mpInvoicesPage.accessDashboard();
+    await mpDashboardPage.verifyAt();
+
+    //NPA_05
+    await mpDashboardPage.accessBookings();
+    await mpBookingsPage.verifyAt();
+    await mpBookingsPage.accessDashboard();
+    await mpDashboardPage.verifyAt();
+
+    // 🔴NPA_012: Should be able to access User Profile Menu->Sign out  
+    // 🔴NPA_011: Should be able to access User Profile Menu->Settings  
+    // 🔴NPA_010: Should be able to access User Profile Menu->Account  
+    // 🔴NPA_009: Should be able to access User Profile Menu->Building  
+    // 🔴NPA_008: Should be able to access User Profile Menu->My activity  
+    // 🔴NPA_007: Should be able to access User Profile Menu->Help & support  
+    // 🔴NPA_006: Should be able to access User Profile Menu->My plans  
   });
 
 });

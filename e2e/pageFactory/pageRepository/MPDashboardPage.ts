@@ -47,4 +47,9 @@ export class MPDashboardPage extends MPDashboardPageObjects {
     await webActions.clickElementByExactRole('link', 'Bookings');    
   }
 
+  async accessMyPlans(): Promise<void> {
+    await webActions.clickElementByRole("img", "chevron-down icon");
+    await webActions.clickElementByExactRole('link', 'My plan');    
+  }
+
 }

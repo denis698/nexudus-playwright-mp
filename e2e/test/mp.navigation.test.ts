@@ -41,34 +41,29 @@ test.describe('Navigation->User Profile Menu', () => {
     //NPA_03
     await mpHeader.accessMarketing();
     await mpMarketingPage.verifyAt();
+
     await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
     
     //NPA_04
     await mpHeader.accessInvoices();
     await mpInvoicesPage.verifyAt();
+
     await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
 
     //NPA_05
     await mpHeader.accessBookings();
     await mpBookingsPage.verifyAt();
+
     await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
 
     //NPA_06
     await mpHeader.accessMyPlans();
     await mpMyPlansPage.verifyAt();
+
     await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
-
-    // 🔴NPA_012: Should be able to access User Profile Menu->Sign out  
-    // 🔴NPA_011: Should be able to access User Profile Menu->Settings  
-    // 🔴NPA_010: Should be able to access User Profile Menu->Account  
-    // 🔴NPA_009: Should be able to access User Profile Menu->Building  
-    // 🔴NPA_008: Should be able to access User Profile Menu->My activity  
-    // 🔴NPA_007: Should be able to access User Profile Menu->Help & support  
-    
   });
-
 });

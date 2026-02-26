@@ -15,6 +15,8 @@ export class MPMyPlansPage extends MPMyPlansPageObjects {
 
   async verifyAt(): Promise<void> {
     await webActions.verifyPageElement(MPMyPlansPageObjects.MY_PLANS_MENU.replace(`/locuser`, process.env.MP_TEST_USER));
+    await webActions.verifyPageElement(MPMyPlansPageObjects.MY_PLANS_TITLE);
+    await webActions.verifyPageElement(MPMyPlansPageObjects.MY_PRODUCTS_TITLE);
     await webActions.verifyURL(MPMyPlansPageObjects.PAGE_URL);
     await webActions.verifyTitle(MPMyPlansPageObjects.PAGE_TITLE);
   }

@@ -31,6 +31,7 @@ test.describe('Navigation->User Profile Menu', () => {
   });
 
   test(`@NPA_003 & @NPA_012 @smoke @mp.nav - select user profile menu options`, async ({
+    mpHeader,
     mpDashboardPage,
     mpMarketingPage,
     mpInvoicesPage,
@@ -38,27 +39,27 @@ test.describe('Navigation->User Profile Menu', () => {
     mpMyPlansPage, }) => {
     
     //NPA_03
-    await mpDashboardPage.accessMarketing();
+    await mpHeader.accessMarketing();
     await mpMarketingPage.verifyAt();
-    await mpMarketingPage.accessDashboard();
+    await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
     
     //NPA_04
-    await mpDashboardPage.accessInvoices();
+    await mpHeader.accessInvoices();
     await mpInvoicesPage.verifyAt();
-    await mpInvoicesPage.accessDashboard();
+    await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
 
     //NPA_05
-    await mpDashboardPage.accessBookings();
+    await mpHeader.accessBookings();
     await mpBookingsPage.verifyAt();
-    await mpBookingsPage.accessDashboard();
+    await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
 
     //NPA_06
-    await mpDashboardPage.accessMyPlans();
+    await mpHeader.accessMyPlans();
     await mpMyPlansPage.verifyAt();
-    await mpMyPlansPage.accessDashboard();
+    await mpHeader.accessDashboard();
     await mpDashboardPage.verifyAt();
 
     // 🔴NPA_012: Should be able to access User Profile Menu->Sign out  

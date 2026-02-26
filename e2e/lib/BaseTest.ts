@@ -42,6 +42,7 @@ import { MPInvoicesPage } from '@pages/MPInvoicesPage';
 import { MPCreateAccountDialog } from '@pages/MPCreateAccountDialog';
 import { MPBookingsPage } from '@pages/MPBookingsPage';
 import { MPMyPlansPage } from '@pages/MPMyPlansPage';
+import { MPHeader } from '@pages/MPHeader';
 
 const test = baseTest.extend<{
   loginPage: LoginPage;
@@ -87,6 +88,7 @@ const test = baseTest.extend<{
   mpCreateAccountDialog: MPCreateAccountDialog;
   mpBookingsPage: MPBookingsPage;
   mpMyPlansPage: MPMyPlansPage;
+  mpHeader: MPHeader;
 
 }>({
   loginPage: async ({ page }, use) => {
@@ -217,6 +219,9 @@ const test = baseTest.extend<{
   },
   mpMyPlansPage: async ({ page }, use) => {
     await use(new MPMyPlansPage(page));
+  },
+  mpHeader: async ({ page }, use) => {
+    await use(new MPHeader(page));
   },
 });
 

@@ -45,6 +45,7 @@ import { MPMyPlansPage } from '@pages/MPMyPlansPage';
 import { MPHeader } from '@pages/MPHeader';
 import { MPBuildingPage } from '@pages/MPBuildingPage';
 import { MPAccountPage } from '@pages/MPAccountPage';
+import { MPSettingsPage } from '@pages/MPSettingsPage';
 
 const test = baseTest.extend<{
   loginPage: LoginPage;
@@ -93,6 +94,7 @@ const test = baseTest.extend<{
   mpHeader: MPHeader;
   mpBuildingPage: MPBuildingPage;
   mpAccountPage: MPAccountPage;
+  mpSettingsPage: MPSettingsPage;
 
 }>({
   loginPage: async ({ page }, use) => {
@@ -232,6 +234,9 @@ const test = baseTest.extend<{
   },
   mpAccountPage: async ({ page }, use) => {
     await use(new MPAccountPage(page));
+  },
+  mpSettingsPage: async ({ page }, use) => {
+    await use(new MPSettingsPage(page));
   },
 });
 

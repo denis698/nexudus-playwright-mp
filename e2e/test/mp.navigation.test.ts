@@ -14,7 +14,7 @@ test.describe('navigation->user-profile-menu', () => {
     await mpMarketingPage.isElementVisibleWithName('Sign in');
   });
   
-  test(`@NPA_002a @smoke @mp.nav - admin access user-profile-menu->page editor->admin->switch account`, async ({
+  test(`@NPA_02a @smoke @mp.nav - admin access user-profile-menu->page editor->admin->switch account`, async ({
     mpLoginPage,
     mpDashboardPage}) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_ADMIN_USERNAME), String(process.env.MP_TEST_ADMIN_PASSWORD));
@@ -25,7 +25,7 @@ test.describe('navigation->user-profile-menu', () => {
     expect(menuOptions).toContain("Switch account");
   });
 
-  test(`@NPA_002b @smoke @mp.nav - access user-profile-menu options`, async ({
+  test(`@NPA_02b @smoke @mp.nav - access user-profile-menu options`, async ({
     mpDashboardPage,
     mpLoginPage}) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_USERNAME), String(process.env.MP_TEST_PASSWORD));
@@ -37,7 +37,7 @@ test.describe('navigation->user-profile-menu', () => {
     expect(menuOptions).not.toContain("Switch account");
   });
 
-  test(`@NPA_003 to 012 @smoke @mp.nav - access user-profile-menu options`, async ({
+  test(`@NPA_03 to 12 @smoke @mp.nav - access user-profile-menu options`, async ({
     mpHeader,
     mpLoginPage,
     mpDashboardPage,
@@ -46,7 +46,8 @@ test.describe('navigation->user-profile-menu', () => {
     mpBookingsPage,
     mpMyPlansPage,
     mpBuildingPage,
-    mpAccountPage, }) => {
+    mpAccountPage,
+    mpSettingsPage, }) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_USERNAME), String(process.env.MP_TEST_PASSWORD));
     await mpDashboardPage.verifyAt();  
     
@@ -113,11 +114,11 @@ test.describe('navigation->user-profile-menu', () => {
     await mpDashboardPage.verifyAt();   
     
     //NPA_11
-    //await mpHeader.accessSettings();
-    //await mpSettingsPage.verifyAt();
+    await mpHeader.accessSettings();
+    await mpSettingsPage.verifyAt();
 
-    //await mpHeader.accessDashboard();
-    //await mpDashboardPage.verifyAt();
+    await mpHeader.accessDashboard();
+    await mpDashboardPage.verifyAt();
 
     // 🔴NPA_007: Should be able to access User Profile Menu->Help & support  
     // 🔴NPA_008: Should be able to access User Profile Menu->My activity  

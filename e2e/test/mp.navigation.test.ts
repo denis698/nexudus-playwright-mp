@@ -37,7 +37,7 @@ test.describe('navigation->user-profile-menu', () => {
     expect(menuOptions).not.toContain("Switch account");
   });
 
-  test(`@NPA_03 to 11 @smoke @mp.nav - access user-profile-menu options`, async ({
+  test(`@NPA_03-11 @smoke @mp.nav - access user-profile-menu options`, async ({
     mpHeader,
     mpLoginPage,
     mpDashboardPage,

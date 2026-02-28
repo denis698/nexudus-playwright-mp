@@ -154,7 +154,7 @@ test.describe('navigation->user-profile-menu', () => {
     await mpDashboardPage.verifyAt();
   });
 
-  test(`@NPA_12 @smoke @mp.navn - sign out`, async ({mpLoginPage, mpDashboardPage, mpHeader, mpMarketingPage}) => {
+  test(`@NPA_12 @smoke @mp.nav - sign out`, async ({mpLoginPage, mpDashboardPage, mpHeader, mpMarketingPage}) => {
     await mpLoginPage.loginAs(String(process.env.MP_TEST_USERNAME), String(process.env.MP_TEST_PASSWORD));
     await mpDashboardPage.verifyAt();
     await mpHeader.logout();
